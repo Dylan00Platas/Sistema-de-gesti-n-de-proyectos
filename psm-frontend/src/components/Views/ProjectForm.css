@@ -1,0 +1,661 @@
+/* Header del formulario */
+.project-form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.header-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-guardar {
+  background: linear-gradient(135deg, #08915f, #0bb06e);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.8rem;
+  border-radius: 30px;
+  font-family: 'Kulim Park', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(8, 145, 95, 0.3);
+}
+
+.btn-guardar:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(8, 145, 95, 0.4);
+}
+
+.btn-guardar:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-cancelar {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.75rem 1.8rem;
+  border-radius: 30px;
+  font-family: 'Kulim Park', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  transition: all 0.3s ease;
+}
+
+.btn-cancelar:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Formulario */
+.project-form {
+  background: rgba(1, 83, 42, 0.1);
+  border-radius: 20px;
+  padding: 2rem;
+  border: 1px solid rgba(168, 230, 176, 0.1);
+  backdrop-filter: blur(5px);
+}
+
+/* Secciones */
+.form-section {
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(168, 230, 176, 0.2);
+}
+
+.form-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.form-section-title {
+  color: #A8E6B0;
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  padding-left: 0.5rem;
+  border-left: 4px solid #08915f;
+}
+
+/* Campos del formulario */
+.form-field {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  color: #A8E6B0;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background: rgba(1, 83, 42, 0.2);
+  border: 1px solid rgba(168, 230, 176, 0.2);
+  border-radius: 10px;
+  color: white;
+  font-family: 'Kulim Park', sans-serif;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #A8E6B0;
+  background: rgba(1, 83, 42, 0.3);
+  box-shadow: 0 0 15px rgba(1, 83, 42, 0.3);
+}
+
+.form-input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* Filas de dos columnas */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.form-field.half {
+  margin-bottom: 0;
+}
+
+/* Área de subida de archivos */
+.file-upload-area {
+  margin-bottom: 1rem;
+}
+
+.file-upload-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(1, 83, 42, 0.2);
+  border: 2px dashed rgba(168, 230, 176, 0.3);
+  border-radius: 12px;
+  padding: 1rem 2rem;
+  color: #A8E6B0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.file-upload-label:hover {
+  background: rgba(1, 83, 42, 0.3);
+  border-color: #A8E6B0;
+}
+
+.file-input-hidden {
+  display: none;
+}
+
+.upload-icon {
+  font-size: 1.2rem;
+}
+
+.file-hint {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin-top: 0.5rem;
+}
+
+/* Lista de archivos */
+.files-list {
+  margin-top: 1rem;
+  background: rgba(1, 83, 42, 0.15);
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.files-list h4 {
+  color: #A8E6B0;
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+  font-weight: 400;
+}
+
+.file-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.6rem;
+  background: rgba(1, 83, 42, 0.2);
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.file-item:last-child {
+  margin-bottom: 0;
+}
+
+.file-icon {
+  color: #A8E6B0;
+  font-size: 1.2rem;
+}
+
+.file-info {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.file-name {
+  color: white;
+  font-size: 0.9rem;
+}
+
+.file-size {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.75rem;
+}
+
+.file-remove {
+  background: transparent;
+  border: none;
+  color: #F44336;
+  cursor: pointer;
+  padding: 0.3rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.file-remove:hover {
+  background: rgba(244, 67, 54, 0.2);
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .project-form-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .header-buttons {
+    width: 100%;
+    flex-direction: column;
+  }
+  
+  .btn-guardar,
+  .btn-cancelar {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .project-form {
+    padding: 1.5rem;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .form-field.half {
+    margin-bottom: 1rem;
+  }
+  
+  .file-info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .project-form {
+    padding: 1rem;
+  }
+  
+  .form-section-title {
+    font-size: 1.1rem;
+  }
+  
+  .file-item {
+    flex-wrap: wrap;
+  }
+}
+
+
+
+
+/* Modal de éxito */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+  background: linear-gradient(135deg, #01532a, #014020);
+  border-radius: 24px;
+  padding: 2.5rem;
+  max-width: 450px;
+  width: 90%;
+  text-align: center;
+  border: 1px solid rgba(168, 230, 176, 0.3);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.4s ease;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #A8E6B0;
+  font-size: 1.2rem;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.modal-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #08915f, #0bb06e);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  font-size: 3rem;
+  color: white;
+  animation: pulse 0.5s ease;
+}
+
+.modal-title {
+  color: #A8E6B0;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  font-family: 'Kulim Park', sans-serif;
+}
+
+.modal-message {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+  font-family: 'Kulim Park', sans-serif;
+}
+
+.modal-button {
+  background: linear-gradient(135deg, #08915f, #0bb06e);
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 30px;
+  font-family: 'Kulim Park', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(8, 145, 95, 0.3);
+}
+
+.modal-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(8, 145, 95, 0.4);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Asegurar que el contenido principal tenga z-index correcto */
+.panorama-container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Mejorar el estilo del botón guardar */
+.btn-guardar {
+  background: linear-gradient(135deg, #08915f, #0bb06e);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.8rem;
+  border-radius: 30px;
+  font-family: 'Kulim Park', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(8, 145, 95, 0.3);
+}
+
+.btn-guardar:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(8, 145, 95, 0.4);
+}
+
+.btn-guardar:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-icon {
+  font-size: 0.9rem;
+}
+
+/* Barra de progreso */
+.upload-progress {
+  background: rgba(1, 83, 42, 0.2);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(135deg, #08915f, #0bb06e);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.upload-progress p {
+  color: #A8E6B0;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+/* Estilos para campos de texto enriquecido con validación */
+.rich-text-field {
+  margin-bottom: 1.5rem;
+}
+
+.required-star {
+  color: #F44336;
+  margin-left: 0.2rem;
+}
+
+.char-counter {
+  font-size: 0.7rem;
+  margin-left: 0.5rem;
+  font-weight: normal;
+}
+
+.char-counter.valid {
+  color: #4CAF50;
+}
+
+.char-counter.invalid {
+  color: #FFC107;
+}
+
+/* Estilos para el RichTextEditor cuando hay error */
+.rich-text-field.has-error .rich-text-editor,
+.rich-text-field.has-error .ql-container {
+  border-color: #F44336 !important;
+  box-shadow: 0 0 0 2px rgba(244, 67, 54, 0.2);
+}
+
+/* Estilos para el RichTextEditor cuando es válido */
+.rich-text-field.is-valid .rich-text-editor,
+.rich-text-field.is-valid .ql-container {
+  border-color: #4CAF50 !important;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+/* Mensajes de error */
+.field-error-message {
+  color: #F44336;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(244, 67, 54, 0.1);
+  padding: 0.5rem;
+  border-radius: 6px;
+}
+
+/* Mensajes de advertencia */
+.field-warning-message {
+  color: #FF9800;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 152, 0, 0.1);
+  padding: 0.5rem;
+  border-radius: 6px;
+}
+
+.error-icon,
+.warning-icon {
+  font-size: 0.9rem;
+}
+
+/* Nota del formulario */
+.form-note {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+/* Estilos para los inputs normales con error */
+.form-input.error {
+  border-color: #F44336;
+  box-shadow: 0 0 0 2px rgba(244, 67, 54, 0.1);
+}
+
+/* Animación para los mensajes de error */
+.field-error-message,
+.field-warning-message {
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Estilos para validación */
+.required-star {
+  color: #F44336;
+  margin-left: 0.2rem;
+}
+
+.char-count {
+  font-size: 0.7rem;
+  margin-left: 0.5rem;
+  font-weight: normal;
+}
+
+.char-count.valid {
+  color: #2d682f;
+}
+
+.char-count.pending {
+  color: #4CAF50;
+}
+
+.form-field.has-error .rich-text-editor,
+.form-field.has-error .ql-container,
+.form-input.has-error {
+  border-color: #F44336 !important;
+}
+
+.field-error {
+  color: #ff5d51;
+  font-size: .9rem;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  background: rgba(244, 67, 54, 0.1);
+  border-radius: 6px;
+}
+
+.form-note {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+/* Animación suave para los errores */
+.field-error {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

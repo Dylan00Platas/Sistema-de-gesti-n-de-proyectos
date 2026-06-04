@@ -1,0 +1,267 @@
+/* login.css - Versión corregida */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Kulim Park';
+}
+
+.inicio-sesion-page {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #091f11, #01532A, #094424, #02A252);
+  background-size: 300% 300%;
+  animation: gradientMove 13s ease infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.login-container {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  padding: 4rem 1rem; 
+  border-radius: 18px;
+  width: min(90%, 400px);
+  color: #fff;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeInUp 0.4s ease-out;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.login-container h2 {
+  font-family: 'Kulim Park';
+  font-size: clamp(1.8rem, 3vw, 3.5rem);
+  font-weight: 100;
+  margin-top: -20px;
+  margin-bottom: 50px;
+  color: white;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.login-container form {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin-left: -20px;
+}
+
+/* Estilo unificado para TODOS los inputs */
+.login-container input[type="text"],
+.login-container input[type="email"],
+.login-container input[type="password"] {
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255,255,255,0.5);
+  padding: 0.8rem;
+  border-radius: 5px;
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  width: 100%;
+  box-sizing: border-box; /* ¡CRUCIAL! Incluye padding en el ancho total */
+  height: 45px; /* Altura fija para consistencia */
+}
+
+.login-container input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.login-container input:focus {
+  outline: none;
+  border-color: #199532;
+  box-shadow: 0 0 8px rgba(25, 149, 50, 0.6);
+}
+
+.login-container button[type="submit"] {
+  background-color: #199532;
+  color: white;
+  cursor: pointer;
+  padding: 0.8rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 5px;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-left: 5%;
+  margin-bottom: 5%;
+  border: none;
+  width: calc(100% - 5%);
+  height: 45px; /* Misma altura que los inputs */
+  box-sizing: border-box;
+}
+
+.login-container button[type="submit"]:hover {
+  background-color: #105e21;
+  transform: translateY(-2px);
+  box-shadow: 0 0 10px rgba(25, 149, 50, 0.5);
+}
+
+/* Contenedor del password - debe tener el mismo ancho que el form */
+.password-input-container-login {
+  display: flex;
+  align-items: center;
+  width: 100%; /* Cambiado de 110% a 100% */
+  margin: 0.5rem 0;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Input de password específico */
+.password-input-login {
+  flex: 1;
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255,255,255,0.5);
+  padding: 0.8rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 100%;
+  padding-right: 45px; /* Espacio para el botón */
+  box-sizing: border-box;
+  height: 45px; /* Misma altura que los otros inputs */
+}
+
+/* Botón toggle */
+.password-toggle-login {
+  position: absolute;
+  right: 5px;
+  top: 50%; 
+  transform: translateY(-50%); 
+  background: #199532;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 4px;
+  width: 36px;
+  height: 36px; /* Un poco más pequeño que el input para que quepa */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  padding: 0;
+  margin: 0;
+  transition: all 0.3s ease;
+}
+
+.password-toggle-login:hover {
+  background: #147829;
+  transform: translateY(-50%) scale(1.1); /* Reducido el scale para no desbordar */
+}
+
+.alerta {
+  width: 90%;
+  padding: 0.9rem 1rem;
+  margin-top: 1rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-align: center;
+  animation: fadeIn 0.4s ease-in-out;
+  box-sizing: border-box;
+}
+
+.alerta.exito {
+  background: rgba(25, 149, 50, 0.15);
+  border: 1px solid #199532;
+  color: #7CFC9A;
+}
+
+.alerta.error {
+  background: rgba(220, 20, 60, 0.15);
+  border: 1px solid #dc143c;
+  color: #ff7b7b;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.copyright {
+  margin-top: 13%;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  width: 100%;
+  letter-spacing: 0.5px;
+  box-sizing: border-box;
+}
+
+/* Responsive para tablets */
+@media screen and (max-width: 768px) {
+  .login-container {
+    width: min(95%, 380px);
+    padding: 2.5rem 2rem;
+  }
+  
+  .login-container form {
+    width: 95%;
+  }
+}
+
+/* Responsive para móviles */
+@media screen and (max-width: 480px) {
+  .login-container {
+    width: 95%;
+    padding: 2rem 1.5rem;
+  }
+  
+  .login-container h2 {
+    margin-bottom: 30px;
+  }
+  
+  .password-input-container-login {
+    width: 100%; /* Aseguramos que sea 100% en móviles también */
+  }
+  
+  .password-toggle-login {
+    width: 32px;
+    height: 32px;
+    right: 4px;
+  }
+  
+  .password-input-login {
+    padding-right: 40px;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .login-container {
+    width: min(80%, 500px);
+    padding: 4rem 3.5rem;
+  }
+}

@@ -1,0 +1,574 @@
+/* Sidebar.css - Versión con tonos claros y verdes #08915f */
+@import url('https://fonts.googleapis.com/css2?family=Kulim+Park:wght@200;300;400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-green: #08915f;
+  --light-green: #0bb06e;
+  --soft-green: #c0e6d6;
+  --pale-green: #e6f4ef;
+  --white: #FFFFFF;
+  --off-white: #F5F9F6;
+  --light-gray: #E0E0E0;
+  --text-dark: #2C3E50;
+  --text-light: #5F6B7A;
+  --shadow-light: rgba(8, 145, 95, 0.1);
+  --footer-green: #f0f8f4;
+}
+
+.sidebar {
+  font-family: 'Kulim Park', sans-serif;
+  width: clamp(250px, 22vw, 300px);
+  height: 100vh;
+  background: var(--white);
+  color: var(--text-dark);
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 1rem;
+  box-sizing: border-box;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-shadow: 5px 0 25px var(--shadow-light);
+  position: relative;
+  overflow-y: auto;
+  transition: all 0.3s ease;
+  border-right: 1px solid var(--light-gray);
+}
+
+/* Estado colapsado */
+.sidebar.colapsada {
+  width: clamp(70px, 8vw, 90px);
+}
+
+.sidebar.colapsada .texto,
+.sidebar.colapsada .user-info,
+.sidebar.colapsada .search-input,
+.sidebar.colapsada .help-item span,
+.sidebar.colapsada .version-info,
+.sidebar.colapsada .logo-badge {
+  display: none;
+}
+
+.sidebar.colapsada .icon-container {
+  margin-right: 0;
+  font-size: 1.5rem;
+}
+
+.sidebar.colapsada .avatar {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  color: var(--primary-green);
+}
+
+.sidebar.colapsada .user-profile {
+  justify-content: center;
+  padding: 0.5rem 0;
+}
+
+.sidebar.colapsada .logout-btn span {
+  display: none;
+}
+
+.sidebar.colapsada .logout-btn {
+  justify-content: center;
+  padding: 0.8rem 0;
+}
+
+.sidebar.colapsada .logout-btn svg {
+  margin-right: 0;
+}
+
+/* Header de la sidebar */
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.logo-container:hover {
+  transform: scale(1.02);
+}
+
+/* Estilos para la imagen del logo */
+.logo-image {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 5px var(--shadow-light));
+  transition: all 0.3s ease;
+}
+
+.logo-container:hover .logo-image {
+  transform: scale(1.05);
+  filter: drop-shadow(0 4px 8px var(--shadow-light));
+}
+
+/* Cuando la sidebar está colapsada */
+.sidebar.colapsada .logo-image {
+  height: 32px;
+  width: 32px;
+  border-radius: 8px;
+}
+
+.toggle-btn {
+  background: var(--pale-green);
+  border: 1px solid var(--soft-green);
+  color: var(--primary-green);
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.3rem;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1001;
+}
+
+.toggle-btn:hover {
+  background: var(--light-green);
+  border-color: var(--primary-green);
+  transform: scale(1.05);
+  color: white;
+}
+
+.sidebar.colapsada .toggle-btn {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Perfil de usuario */
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--pale-green);
+  border-radius: 16px;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--soft-green);
+  transition: all 0.3s ease;
+  animation: slideIn 0.5s ease;
+}
+
+.user-profile:hover {
+  background: var(--light-green);
+  transform: translateX(5px);
+}
+
+.user-profile:hover .avatar,
+.user-profile:hover .user-name,
+.user-profile:hover .user-rol {
+  color: white;
+}
+
+.avatar {
+  font-size: 2.5rem;
+  color: var(--primary-green);
+  filter: drop-shadow(0 2px 5px var(--shadow-light));
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-size: clamp(0.9rem, 1.2vw, 1rem);
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: var(--text-dark);
+}
+
+.user-rol {
+  font-size: clamp(0.7rem, 1vw, 0.8rem);
+  color: var(--text-light);
+  font-weight: 300;
+}
+
+/* Barra de búsqueda */
+.search-container {
+  position: relative;
+  margin-bottom: 2rem;
+  animation: slideIn 0.5s ease 0.1s both;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.8rem 1rem 0.8rem 2.8rem;
+  background: var(--off-white);
+  border: 1px solid var(--light-gray);
+  border-radius: 30px;
+  color: var(--text-dark);
+  font-size: clamp(0.8rem, 1.1vw, 0.9rem);
+  transition: all 0.3s ease;
+  font-family: 'Kulim Park', sans-serif;
+}
+
+.search-input::placeholder {
+  color: var(--text-light);
+  font-weight: 300;
+  opacity: 0.7;
+}
+
+.search-input:focus {
+  outline: none;
+  background: white;
+  border-color: var(--light-green);
+  box-shadow: 0 0 15px var(--shadow-light);
+}
+
+.search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+.search-icon.clickable {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.search-icon.clickable:hover {
+  color: var(--light-green);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.search-icon.clickable:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+/* Navegación */
+.sidebar-nav {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-nav ul li {
+  display: flex;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  margin: 0.3rem 0;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  position: relative;
+  animation: slideInRight 0.4s ease forwards;
+  opacity: 0;
+  border: 1px solid transparent;
+  color: var(--text-dark);
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.sidebar-nav ul li:hover {
+  background: var(--pale-green);
+  border-color: var(--soft-green);
+  transform: translateX(5px);
+  box-shadow: 0 5px 15px var(--shadow-light);
+}
+
+.sidebar-nav ul li:active {
+  transform: scale(0.98);
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  margin-right: 1rem;
+  font-size: 1.2rem;
+  color: var(--primary-green);
+  transition: all 0.3s ease;
+}
+
+.sidebar-nav ul li:hover .icon-container {
+  transform: rotate(5deg) scale(1.1);
+  color: var(--light-green);
+}
+
+.texto {
+  flex: 1;
+  font-size: clamp(0.85rem, 1.2vw, 0.95rem);
+  font-weight: 400;
+  letter-spacing: 0.3px;
+}
+
+.badge {
+  background: var(--light-green);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.2rem 0.5rem;
+  border-radius: 20px;
+  min-width: 20px;
+  text-align: center;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* Botón de logout */
+.logout-btn {
+  background: var(--off-white);
+  border: 1px solid #dd8484;
+  color: #D32F2F;
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  cursor: pointer;
+  font-size: clamp(0.85rem, 1.2vw, 0.95rem);
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+  font-family: 'Kulim Park', sans-serif;
+  font-weight: 500;
+  width: 100%;
+}
+
+.logout-btn svg {
+  font-size: 1.2rem;
+  color: #D32F2F;
+}
+
+.logout-btn:hover {
+  background: #f8d3d8;
+  border-color: #D32F2F;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(211, 47, 47, 0.1);
+}
+
+.logout-btn:active {
+  transform: translateY(0);
+}
+
+/* Versión - FOOTER VERDE */
+.version-info {
+  text-align: center;
+  margin-top: 1rem;
+  padding: 0.8rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.5px;
+  background: var(--footer-green);
+  border-radius: 12px;
+  border: 1px solid var(--soft-green);
+  color: var(--primary-green);
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.version-info:hover {
+  background: #08915f;
+  color: white ;
+}
+
+/* Scrollbar personalizada */
+.sidebar-nav::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sidebar-nav::-webkit-scrollbar-track {
+  background: var(--off-white);
+  border-radius: 10px;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb {
+  background: var(--soft-green);
+  border-radius: 10px;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb:hover {
+  background: var(--light-green);
+}
+
+/* Animaciones */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Efectos de hover en los ítems activos */
+.sidebar-nav ul li.active {
+  background: var(--pale-green);
+  border-left: 3px solid var(--primary-green);
+}
+
+/* Tooltips para modo colapsado */
+.sidebar.colapsada [data-tooltip] {
+  position: relative;
+}
+
+.sidebar.colapsada [data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--primary-green);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  z-index: 1000;
+  margin-left: 10px;
+  backdrop-filter: blur(5px);
+  border: 1px solid var(--soft-green);
+}
+
+/* Efecto de sombra */
+.sidebar {
+  box-shadow: 5px 0 25px var(--shadow-light);
+}
+
+.sidebar:hover {
+  box-shadow: 5px 0 35px rgba(8, 145, 95, 0.15);
+}
+
+/* Responsive para tablets */
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: clamp(200px, 25vw, 250px);
+    padding: 1rem;
+  }
+  
+  .sidebar.colapsada {
+    width: clamp(60px, 10vw, 80px);
+  }
+  
+  .avatar {
+    font-size: 2rem;
+  }
+  
+  .logo-image {
+    height: 35px;
+  }
+  
+  .version-info {
+    padding: 0.6rem;
+    font-size: 0.65rem;
+  }
+}
+
+/* Responsive para móviles */
+@media screen and (max-width: 480px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    border-radius: 0;
+    position: fixed;
+    z-index: 1000;
+    background: white;
+  }
+  
+  .sidebar.colapsada {
+    width: 70px;
+  }
+  
+  .sidebar.colapsada .help-section {
+    display: none;
+  }
+  
+  .user-profile {
+    padding: 0.8rem;
+  }
+  
+  .sidebar-nav ul li {
+    padding: 0.6rem;
+  }
+  
+  .logo-image {
+    height: 30px;
+  }
+  
+  .version-info {
+    padding: 0.5rem;
+    font-size: 0.6rem;
+  }
+}
+
+/* Responsive para pantallas muy grandes */
+@media screen and (min-width: 1920px) {
+  .sidebar {
+    width: 350px;
+    padding: 2rem;
+  }
+  
+  .sidebar.colapsada {
+    width: 100px;
+  }
+  
+  .icon-container {
+    width: 32px;
+    height: 32px;
+    font-size: 1.4rem;
+  }
+  
+  .user-name {
+    font-size: 1.1rem;
+  }
+  
+  .user-rol {
+    font-size: 0.9rem;
+  }
+  
+  .logo-image {
+    height: 50px;
+  }
+  
+  .version-info {
+    padding: 1rem;
+    font-size: 0.8rem;
+  }
+} 

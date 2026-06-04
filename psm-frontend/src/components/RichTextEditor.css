@@ -1,0 +1,130 @@
+.rich-editor-wrapper {
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+.rich-editor-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #A8E6B0;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.rich-editor {
+  border: 1px solid rgba(168, 230, 176, 0.2);
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(1, 83, 42, 0.1);
+  transition: all 0.3s ease;
+}
+
+.rich-editor:focus-within {
+  border-color: #A8E6B0;
+  box-shadow: 0 0 15px rgba(1, 83, 42, 0.3);
+}
+
+.rich-editor-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  padding: 0.5rem;
+  background: rgba(1, 83, 42, 0.15);
+  border-bottom: 1px solid rgba(168, 230, 176, 0.2);
+}
+
+.rich-editor-toolbar button {
+  background: transparent;
+  border: 1px solid rgba(168, 230, 176, 0.3);
+  color: #A8E6B0;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+}
+
+.rich-editor-toolbar button:hover {
+  background: rgba(168, 230, 176, 0.2);
+  border-color: #A8E6B0;
+}
+
+.rich-editor-toolbar button.is-active {
+  background: #08915f;
+  border-color: #08915f;
+  color: white;
+}
+
+.rich-editor-toolbar button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.toolbar-separator {
+  width: 1px;
+  height: 24px;
+  background: rgba(168, 230, 176, 0.3);
+  margin: 0 0.25rem;
+}
+
+.rich-editor-content {
+  min-height: 150px;
+  padding: 1rem;
+}
+
+.rich-editor-content .ProseMirror {
+  outline: none;
+  min-height: 150px;
+  color: white;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.rich-editor-content .ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: rgba(168, 230, 176, 0.4);
+  pointer-events: none;
+  height: 0;
+}
+
+.rich-editor-content .ProseMirror ul,
+.rich-editor-content .ProseMirror ol {
+  padding-left: 1.5rem;
+}
+
+.rich-editor-content .ProseMirror h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 1rem 0 0.5rem;
+}
+
+.rich-editor-content .ProseMirror h2 {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin: 0.75rem 0 0.5rem;
+}
+
+.rich-editor-content .ProseMirror h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0.5rem 0;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .rich-editor-toolbar {
+    gap: 0.2rem;
+  }
+  
+  .rich-editor-toolbar button {
+    width: 28px;
+    height: 28px;
+    font-size: 0.8rem;
+  }
+}
