@@ -4,7 +4,7 @@
 - WordPress 6.0+
 - PHP 8.0+
 - MySQL 8.0 / MariaDB 10.6
-- Plugin JWT Authentication for WP REST API
+
 
 ## Instalación
 
